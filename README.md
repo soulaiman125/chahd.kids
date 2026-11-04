@@ -54,3 +54,10 @@ Public website text is sent to the external Microsoft Edge translation endpoint 
 Vendor source: https://github.com/xnx3/translate/blob/master/translate.js/translate.js. Snapshot version: `4.1.0.20260526`; SHA-256: `44ef0a9325c75ab2dd038616cfeb19b15dae46d04cbad9a4cbae8b45c67eba3a`. The license is retained in `dist/vendor/translate-LICENSE.txt`. No user account, payment method, or translation API key was configured.
 
 Translation configuration lives in `dist/languages.js`. Use `node --check dist/languages.js` to validate its syntax. Browser QA covered live English/French/Spanish translation, dynamic product details, translated search, persistence, four viewport widths, form privacy, restoring Arabic, and network-failure recovery.
+
+## Shop-supplied products
+
+`dist/products.js` contains 17 catalogue entries illustrated by the 19 product images supplied by the shop. Two images each are grouped into the Mammia sterilizer and Philips Avent pump detail galleries. Original files are retained in the user's source folder; web assets in `dist/assets/products/` retain the full image frame and dimensions and use WebP encoding to reduce transfer size. Click the product image or title to view details, select another gallery image, or open the full-size image.
+
+These entries appear before the eight earlier sample entries. Sample entries are labelled `مثال للتشكيلة`. Prices, stock, device specifications, package contents and sizes are confirmed with the shop rather than invented. Descriptions identify the shown product without adopting the promotional efficacy, certification or safety claims embedded in the supplied artwork.
+

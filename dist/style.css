@@ -14,3 +14,22 @@
 .footer-brand .brand-logo img{width:210px;height:210px;left:-23px;top:-36px}
 @media(max-width:800px){.header-row{height:98px}.site-brand .brand-logo{width:110px;height:84px}.site-brand .brand-logo img{width:128px;height:128px;left:-12px;top:-23px}.footer-brand .brand-logo{width:164px;height:140px}.footer-brand .brand-logo img{width:210px;height:210px;left:-23px;top:-36px}}
 @media(max-width:560px){.header-row{height:94px}.site-brand .brand-logo{width:106px;height:82px}.site-brand .brand-logo img{width:124px;height:124px;left:-12px;top:-22px}.footer-brand .brand-logo{width:164px;height:140px}.footer-brand .brand-logo img{width:210px;height:210px;left:-23px;top:-36px}}
+
+.language-row{display:flex;align-items:center;gap:14px;min-height:46px;border-top:1px solid var(--line);font:11px Tahoma,Arial,sans-serif;letter-spacing:0}
+.language-label{display:flex;align-items:center;gap:7px;white-space:nowrap;color:var(--green)}
+.language-label svg{width:18px;height:18px}
+#site-language{font-size:12px;max-width:180px;min-width:110px;border:1px solid #dce1d3;border-radius:5px;background:var(--paper);padding:6px 8px;height:33px}
+#translation-status{font-size:9px;color:var(--muted);margin-inline-start:auto;line-height:1.8}
+#translation-status[data-state=error]{color:#925b4e}
+#original-language,#translation-retry{font-size:11px;color:var(--green);padding:7px;white-space:nowrap}
+#translation-retry{display:none;font-size:20px}
+.language-row:has(#translation-status[data-state=error]) #translation-retry{display:block}
+.product-title button{text-align:start}
+html{scroll-padding-top:175px}
+html[dir=ltr] .hero-copy,html[dir=ltr] .story-copy{text-align:start}
+html[dir=ltr] .hero h1{letter-spacing:-1px;font-size:clamp(30px,3.3vw,48px);line-height:1.45}
+html[dir=ltr] .handline{white-space:normal}
+html[dir=ltr] .hero-buttons{gap:18px}
+html[dir=ltr] .hero-description{line-height:1.9}
+@media(max-width:800px){.language-row{gap:10px}.language-label{font-size:10px}#translation-status{font-size:8px}html[dir=ltr] .hero h1{font-size:34px}}
+@media(max-width:560px){html{scroll-padding-top:185px}.language-row{flex-wrap:wrap;gap:6px 10px;padding-block:8px}.language-label{font-size:9px}#site-language{min-width:110px;max-width:150px;font-size:11px;height:31px}#translation-status{order:4;width:100%;margin:0;font-size:8px}#original-language{margin-inline-start:auto;font-size:10px}html[dir=ltr] .hero h1{font-size:36px}html[dir=ltr] .hero-buttons{flex-wrap:wrap;gap:15px}html[dir=ltr] .section-heading{flex-wrap:wrap}html[dir=ltr] .category-card strong{line-height:1.8}.steps article{padding-inline-start:45px;padding-inline-end:0}.steps article>span{right:auto;inset-inline-start:0}}

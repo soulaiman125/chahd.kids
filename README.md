@@ -44,3 +44,13 @@ Catalogue entries and images are illustrative. Confirm actual product photograph
 The cart and favorites are saved in the visitor's browser when storage is available. Customer fields are not persisted. Submitting an inquiry opens a WhatsApp draft; the visitor must send the message in WhatsApp. Nothing is ordered or paid automatically.
 
 Hero photograph: [Unsplash image](https://images.unsplash.com/photo-1522771930-78848d9293e8). Product artwork: original SVG illustrations included with the source.
+
+## Automatic website translation
+
+The language selector offers 73 languages through the locally vendored MIT-licensed translate.js client.edge integration. It translates page text, product details, cart labels, placeholders and accessible labels on demand, remembers the selected language, and sets the correct page language and RTL/LTR direction. Returning to Arabic restores the original copy. Translated product titles are included in product search. The WhatsApp inquiry includes the visitor's preferred language; product selections retain their original identifiers and Arabic wording for the shop.
+
+Public website text is sent to the external Microsoft Edge translation endpoint when another language is selected. Customer name, city and note values are excluded from translation; only their static placeholders are eligible. The logo and language selector are excluded. Network errors show a retry option and an Arabic-original button; translation requires a working Internet connection and the provider's availability. Machine translations can be approximate and do not create separately indexed language URLs.
+
+Vendor source: https://github.com/xnx3/translate/blob/master/translate.js/translate.js. Snapshot version: `4.1.0.20260526`; SHA-256: `44ef0a9325c75ab2dd038616cfeb19b15dae46d04cbad9a4cbae8b45c67eba3a`. The license is retained in `dist/vendor/translate-LICENSE.txt`. No user account, payment method, or translation API key was configured.
+
+Translation configuration lives in `dist/languages.js`. Use `node --check dist/languages.js` to validate its syntax. Browser QA covered live English/French/Spanish translation, dynamic product details, translated search, persistence, four viewport widths, form privacy, restoring Arabic, and network-failure recovery.

@@ -1,5 +1,7 @@
-/* Catalogue entries use the 19 images supplied by the shop; prices are confirmed by WhatsApp. */
+/* Catalogue entries use the 21 images supplied by the shop; prices are confirmed by WhatsApp. */
 window.storeProducts = [
+  {id:'kidilo-bed-beige',name:'سرير أطفال Kidilo باللون البيج',category:'sleep',brand:'Kidilo',label:'النوم والراحة',description:'سرير أطفال Kidilo باللون البيج، بالموديل الظاهر في صورة المحل. تواصلي مع المتجر لتأكيد الأبعاد، العمر والوزن المناسبين، الملحقات والثمن قبل الطلب.',options:['بيج — تأكيد التوفر']},
+  {id:'stroller-black-gold',name:'عربة أطفال سوداء بإطار ذهبي',category:'outdoors',brand:'',label:'الخروج والتنقل',description:'عربة أطفال باللون الأسود وإطار ذهبي، بالموديل الظاهر في صورة المحل. تفاصيل الماركة، المقاسات، طريقة الطي، العمر المناسب والتوفر كتتأكد مباشرة مع المتجر.',options:['أسود وذهبي — تأكيد التوفر']},
   {id:'baby-bouncer',name:'كرسي هزاز للأطفال Babycare',category:'sleep',brand:'Babycare',label:'للراحة واللعب',description:'كرسي هزاز للأطفال بالموديل الظاهر في الصورة. تواصلي مع المتجر لتأكيد الموديل، العمر والوزن المناسبين وتعليمات الاستعمال.',options:['الموديل الظاهر — تأكيد مع المتجر']},
   {id:'horigen-pump',name:'مضخة حليب HORIGEN قابلة للارتداء',category:'feeding',brand:'HORIGEN',label:'مضخات الحليب',description:'مضخة حليب HORIGEN قابلة للارتداء. تفاصيل الموديل، القطع المرفقة، التوفر والثمن كتتأكد مباشرة مع المتجر.',options:['HORIGEN — تأكيد الموديل']},
   {id:'mammia-sterilizer',name:'جهاز تعقيم الرضّاعات Mammia',category:'feeding',brand:'Mammia',label:'تعقيم الرضّاعات',gallery:['mammia-sterilizer','mammia-sterilizer-alt'],description:'جهاز تعقيم الرضّاعات من Mammia. شوفي صور العرض، وسولي المتجر على الموديل، الأبعاد، الملحقات وطريقة الاستعمال.',options:['Mammia — تأكيد الموديل']},

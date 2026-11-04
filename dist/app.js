@@ -79,7 +79,8 @@ function renderCart(){
 }
 document.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));
 $('#search-toggle').innerHTML=icon('search');$('#favorites-toggle').innerHTML=icon('heart');$('#cart-toggle').insertAdjacentHTML('beforeend',icon('bag'));$('#menu-toggle').innerHTML=icon('menu');
-$('#category-grid').innerHTML=categories.map(c=>`<button type="button" class="category-card" data-category="${c.id}"><div class="category-image"><img src="assets/${c.image}.svg" alt="" loading="lazy" width="240" height="240"></div><strong>${c.name}</strong><small>${c.caption}</small></button>`).join('');
+const categoryNotes={clothes:'أطقم، لباس وإكسسوارات صغيرة',feeding:'مضخات الحليب وأجهزة التعقيم',care:'روتين العناية بالأم والطفل',toys:'ألعاب ورفاق اللحظات المرحة',sleep:'أغطية وكراسي للراحة',outdoors:'عربات وإكسسوارات الخروج'};
+$('#category-grid').innerHTML=categories.map((c,index)=>`<button type="button" class="category-card" data-category="${c.id}"><span class="category-number notranslate" translate="no" aria-hidden="true">${String(index+1).padStart(2,'0')}</span><span class="category-copy"><strong>${c.name}</strong><small>${categoryNotes[c.id]}</small></span><span class="category-row-arrow" aria-hidden="true">↗</span></button>`).join('');
 document.addEventListener('click',event=>{
  const target=event.target.closest('button');if(!target)return;
  if(target.dataset.category){setCategory(target.dataset.category);return;}

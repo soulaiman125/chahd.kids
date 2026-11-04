@@ -57,7 +57,10 @@ Translation configuration lives in `dist/languages.js`. Use `node --check dist/l
 
 ## Shop-supplied products
 
-`dist/products.js` contains 17 catalogue entries illustrated by the 19 product images supplied by the shop. Two images each are grouped into the Mammia sterilizer and Philips Avent pump detail galleries. Original files are retained in the user's source folder; web assets in `dist/assets/products/` retain the full image frame and dimensions and use WebP encoding to reduce transfer size. Click the product image or title to view details, select another gallery image, or open the full-size image.
+`dist/products.js` contains 19 catalogue entries illustrated by the 21 product images supplied by the shop. Two images each are grouped into the Mammia sterilizer and Philips Avent pump detail galleries. Original files are retained in the user's source folder; web assets in `dist/assets/products/` retain the full image frame and dimensions and use WebP encoding to reduce transfer size. Click the product image or title to view details, select another gallery image, or open the full-size image.
 
 These entries appear before the eight earlier sample entries. Sample entries are labelled `مثال للتشكيلة`. Prices, stock, device specifications, package contents and sizes are confirmed with the shop rather than invented. Descriptions identify the shown product without adopting the promotional efficacy, certification or safety claims embedded in the supplied artwork.
 
+## Boutique category index
+
+Category navigation uses numbered rows and an asymmetric photo composition in dist/categories.css. Featured store photographs link to the outdoor and sleep departments. Kidilo beige bed and black/gold stroller entries use the additional shop-supplied images; brand identity and technical specifications are not guessed. All six department filters remain available on desktop and mobile.

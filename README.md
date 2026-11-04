@@ -1,49 +1,20 @@
 # chahd.kids
 
-Arabic storefront for children's clothing and essentials, based in Tangier, Morocco. Responsive RTL design, six categories, searchable catalogue, product details, favorites and a browser-local cart with a WhatsApp inquiry handoff.
+Arabic, RTL storefront based on the supplied HTML. The original is preserved in `original.html`. The deployable website is in `dist/`; it also opens directly from `dist/index.html`.
 
-## Local preview
+Run `npm run dev` for a preview on http://127.0.0.1:5184 and `npm run check` for a JavaScript syntax check. No dependencies or build step required. `npm run assets` regenerates the original SVG illustrations.
 
-Requires Node.js. No packages need to be installed.
+The catalogue contains shop-supplied product photos. No prices, stock, reviews, delivery fees, payment or return promises are invented. WhatsApp contact and Tangier location are retained from the original document. All WhatsApp handoffs require a visitor click; the cart stays available after handoff. Nothing is ordered or paid on this site.
 
-```sh
-npm run dev
-```
+Categories live in `dist/app.js`; product records and options live in `dist/products.js`. Branding and contact links are in `dist/index.html` and `dist/app.js`. Cart and favorites are stored locally when available; customer name/city/notes are not saved. Customer information is placed in a WhatsApp draft only after submitting the inquiry form. The customer must send that message in WhatsApp.
 
-Open http://127.0.0.1:5184. To check JavaScript syntax, run `npm run check`. The ready-to-serve website is in `dist/` and can also be opened directly from `dist/index.html`.
+Hero photo: [Unsplash image](https://images.unsplash.com/photo-1522771930-78848d9293e8). Product illustrations are original SVGs.
 
-## Deploy on Cloudflare Pages
+## Shop-supplied products
 
-Connect this GitHub repository in Cloudflare's **Workers & Pages → Create application → Pages → Import an existing Git repository**.
+`dist/products.js` contains 69 products using 74 shop-supplied images, grouped into six categories. Multiple photographs of the same Monbobo system and Inter Baby blanket are grouped into galleries. The previous illustrative sample cards have been replaced by the real catalogue. WebP assets retain the original frame and dimensions. Product images open quick details; titles lead to dedicated product pages.
 
-| Setting | Value |
-| --- | --- |
-| Framework preset | None |
-| Production branch | `main` |
-| Build command | `exit 0` |
-| Build output directory | `dist` |
-| Root directory | Repository root; leave blank |
-| Environment variables | None |
-
-The project needs no backend, database, API keys or paid runtime. Cloudflare's Free plan limits apply. After the initial connection, pushes to `main` automatically deploy. The actual `pages.dev` address is assigned by Cloudflare after deployment.
-
-Official references: [Cloudflare static HTML deployment](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/) and [Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/).
-
-GitHub hosts the source. Do not enable GitHub Pages for this storefront: [GitHub Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) exclude websites primarily facilitating commercial transactions.
-
-## Catalogue and contact
-
-- Edit categories, catalogue items and options in `dist/app.js`.
-- Edit content and contact links in `dist/index.html` and `dist/app.js`.
-- Edit the visual design in `dist/style.css`.
-- Store product photos in `dist/assets/` and update the corresponding image paths.
-- `npm run assets` regenerates the original SVG product illustrations.
-
-Catalogue entries and images are illustrative. Confirm actual product photographs, models, prices, size options and stock with the shop before retail launch. No stock, reviews, delivery fees or payment/return promises are fabricated. The shop contact and Tangier location were supplied in the original HTML.
-
-The cart and favorites are saved in the visitor's browser when storage is available. Customer fields are not persisted. Submitting an inquiry opens a WhatsApp draft; the visitor must send the message in WhatsApp. Nothing is ordered or paid automatically.
-
-Hero photograph: [Unsplash image](https://images.unsplash.com/photo-1522771930-78848d9293e8). Product artwork: original SVG illustrations included with the source.
+Prices, availability, sizes and specifications are confirmed with the shop. Descriptions identify the photographed item without adopting promotional efficacy or certification claims.
 
 ## Automatic website translation
 
@@ -55,12 +26,6 @@ Vendor source: https://github.com/xnx3/translate/blob/master/translate.js/transl
 
 Translation configuration lives in `dist/languages.js`. Use `node --check dist/languages.js` to validate its syntax. Browser QA covered live English/French/Spanish translation, dynamic product details, translated search, persistence, four viewport widths, form privacy, restoring Arabic, and network-failure recovery.
 
-## Shop-supplied products
-
-`dist/products.js` contains 19 catalogue entries illustrated by the 21 product images supplied by the shop. Two images each are grouped into the Mammia sterilizer and Philips Avent pump detail galleries. Original files are retained in the user's source folder; web assets in `dist/assets/products/` retain the full image frame and dimensions and use WebP encoding to reduce transfer size. Click the product image or title to view details, select another gallery image, or open the full-size image.
-
-These entries appear before the eight earlier sample entries. Sample entries are labelled `مثال للتشكيلة`. Prices, stock, device specifications, package contents and sizes are confirmed with the shop rather than invented. Descriptions identify the shown product without adopting the promotional efficacy, certification or safety claims embedded in the supplied artwork.
-
 ## Boutique category index
 
 Category navigation uses numbered rows and an asymmetric photo composition in dist/categories.css. Featured store photographs link to the outdoor and sleep departments. Kidilo beige bed and black/gold stroller entries use the additional shop-supplied images; brand identity and technical specifications are not guessed. All six department filters remain available on desktop and mobile.
@@ -68,3 +33,13 @@ Category navigation uses numbered rows and an asymmetric photo composition in di
 ## Global product search
 
 The header search icon opens a labelled search form with submit, clear and close controls. Search always covers the entire catalogue, including after a department or favorites view was selected. Typing, submitting and pressing Enter reveal the results below the current sticky header without navigating or reloading the page. Department navigation clears a previous search. Matching handles multiple words in either order, Latin accents, Arabic diacritics, brand names, product identifiers and translated product text. Escape closes the panel and returns focus to the icon.
+
+## SEO and static pages
+
+Run `npm run seo` after changing product records. `build-seo.mjs` generates 69 static product pages, six category pages, a 76-URL image sitemap, robots.txt, canonical links, social sharing metadata, Store/WebSite schema, Product schema and breadcrumbs. The homepage includes real product and category links before JavaScript runs. No prices, ratings or stock values are fabricated; Product markup without offers/reviews is not claimed to qualify for Google product rich results.
+
+The default canonical origin is https://chahd-kids.avidlemon1.chatgpt.site. When moving to Cloudflare or a custom domain, set SITE_URL to the final HTTPS origin and rerun `npm run seo` before deployment. Configure any domain redirects at the hosting provider; keep a single canonical site. Automatic translations do not generate separate language URLs, so no hreflang alternates are declared.
+
+Public access is necessary for indexing. In Search Console, verify ownership of the final public domain and submit `/sitemap.xml`; no Search Console property or submission has been created by this source change. Indexing and rankings are not guaranteed.
+
+Primary references: [Google technical requirements](https://developers.google.com/search/docs/essentials/technical), [crawlable links](https://developers.google.com/search/docs/crawling-indexing/links-crawlable), [Product structured data](https://developers.google.com/search/docs/appearance/structured-data/product-snippet).

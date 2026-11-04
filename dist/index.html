@@ -7,10 +7,10 @@
   <meta name="description" content="اكتشفي عالم chahd.kids: ملابس ومستلزمات الأطفال في طنجة. تصفحي الأقسام وجهزي طلبك بسهولة عبر واتساب، مع التوصيل لجميع مدن المغرب.">
   <title>chahd.kids — لأجمل البدايات</title>
   <link rel="icon" type="image/png" href="assets/chahd-kids-logo-v1.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=search-fix-1">
   <link rel="stylesheet" href="categories.css">
   <script src="products.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=search-fix-1" defer></script>
   <script src="vendor/translate.js" defer></script>
   <script src="languages.js" defer></script>
 </head>
@@ -21,7 +21,7 @@
     <div class="wrap header-row">
       <a class="notranslate brand site-brand" href="#" aria-label="شهد Kids — الصفحة الرئيسية"><span class="brand-logo"><img src="assets/chahd-kids-logo-v1.png" width="1254" height="1254" alt="شهد Kids" fetchpriority="high"></span></a>
       <nav class="desktop-nav" aria-label="القائمة الرئيسية"><a href="#catalog" class="active">كل المنتجات</a><a href="#categories">الأقسام</a><a href="#story">حكايتنا</a><a href="#help">كيف أطلب؟</a></nav>
-      <div class="header-actions"><button class="icon-button" id="search-toggle" aria-label="البحث عن منتج"></button><button class="icon-button" id="favorites-toggle" aria-label="عرض المفضلة" aria-pressed="false"></button><button class="icon-button bag-button" id="cart-toggle" aria-label="فتح سلة الطلب"><span id="cart-count">0</span></button><button class="icon-button mobile-menu" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"></button></div>
+      <div class="header-actions"><button class="icon-button" id="search-toggle" type="button" aria-label="البحث عن منتج" aria-controls="header-search" aria-expanded="false"></button><button class="icon-button" id="favorites-toggle" aria-label="عرض المفضلة" aria-pressed="false"></button><button class="icon-button bag-button" id="cart-toggle" aria-label="فتح سلة الطلب"><span id="cart-count">0</span></button><button class="icon-button mobile-menu" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"></button></div>
     </div>
     <div class="wrap language-row notranslate" id="language-controls" translate="no" aria-busy="false">
       <label class="language-label" for="site-language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a19 19 0 0 1 0 18 19 19 0 0 1 0-18Z"/></svg><span>اللغة / Language</span></label>
@@ -31,7 +31,12 @@
       <button id="translation-retry" type="button" aria-label="إعادة محاولة الترجمة / Retry translation">↻</button>
     </div>
     <nav class="mobile-nav wrap" id="mobile-nav" aria-label="القائمة على الهاتف" hidden><a href="#catalog">كل المنتجات</a><a href="#categories">الأقسام</a><a href="#story">حكايتنا</a><a href="#help">كيف أطلب؟</a></nav>
-    <div class="wrap header-search" id="header-search" hidden><label for="search">شنو كتقلبي عليه؟</label><input id="search" type="search" placeholder="ملابس، رضاعة، ألعاب…" autocomplete="off"><button class="text-button" id="close-search">إغلاق</button></div>
+    <form class="wrap header-search" id="header-search" role="search" hidden>
+      <label for="search">البحث فالمتجر كامل</label>
+      <div class="search-field"><input id="search" name="q" type="search" placeholder="اسم المنتج أو الماركة…" aria-controls="product-grid" autocomplete="off" enterkeyhint="search" dir="auto"><button class="icon-button" id="clear-search" type="button" aria-label="مسح البحث" hidden>×</button></div>
+      <button class="button primary search-submit" type="submit"><span data-icon="search"></span><span>بحث</span></button>
+      <button class="text-button" id="close-search" type="button">إغلاق</button>
+    </form>
   </header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">

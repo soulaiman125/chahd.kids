@@ -64,3 +64,7 @@ These entries appear before the eight earlier sample entries. Sample entries are
 ## Boutique category index
 
 Category navigation uses numbered rows and an asymmetric photo composition in dist/categories.css. Featured store photographs link to the outdoor and sleep departments. Kidilo beige bed and black/gold stroller entries use the additional shop-supplied images; brand identity and technical specifications are not guessed. All six department filters remain available on desktop and mobile.
+
+## Global product search
+
+The header search icon opens a labelled search form with submit, clear and close controls. Search always covers the entire catalogue, including after a department or favorites view was selected. Typing, submitting and pressing Enter reveal the results below the current sticky header without navigating or reloading the page. Department navigation clears a previous search. Matching handles multiple words in either order, Latin accents, Arabic diacritics, brand names, product identifiers and translated product text. Escape closes the panel and returns focus to the icon.

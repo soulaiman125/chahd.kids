@@ -24,6 +24,16 @@
 #original-language,#translation-retry{font-size:11px;color:var(--green);padding:7px;white-space:nowrap}
 #translation-retry{display:none;font-size:20px}
 .language-row:has(#translation-status[data-state=error]) #translation-retry{display:block}
+.header-search{gap:12px}
+.header-search>label{margin:0;font-size:11px;white-space:nowrap;line-height:1.8}
+.search-field{position:relative;flex:1;min-width:0}
+.search-field input{width:100%;padding-inline-end:43px;min-height:43px}
+#clear-search{position:absolute;inset-inline-end:4px;top:50%;transform:translateY(-50%);width:33px;height:33px;font-size:23px;color:var(--muted)}
+#search::-webkit-search-cancel-button{-webkit-appearance:none}
+.header-search .search-submit{gap:8px;min-height:43px;padding:10px 19px;font-size:12px}
+.search-submit svg{width:17px;height:17px}
+.header-search #close-search{white-space:nowrap}
+@media(max-width:560px){.header-search{gap:10px 7px;padding-block:12px}.header-search>label{width:100%;font-size:10px}.header-search .search-field{flex:1;min-width:100px}.header-search .search-submit{padding:10px 13px;font-size:11px}.header-search #close-search{padding-inline:4px;font-size:10px}.search-field input{font-size:12px}}
 .photo-product{background:#edf0f8}
 .photo-product>button:first-child{padding:0}
 .photo-product>button:first-child:hover img{transform:scale(1.025)}

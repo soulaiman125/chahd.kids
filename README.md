@@ -43,3 +43,18 @@ The default canonical origin is https://chahd-kids.avidlemon1.chatgpt.site. When
 Public access is necessary for indexing. In Search Console, verify ownership of the final public domain and submit `/sitemap.xml`; no Search Console property or submission has been created by this source change. Indexing and rankings are not guaranteed.
 
 Primary references: [Google technical requirements](https://developers.google.com/search/docs/essentials/technical), [crawlable links](https://developers.google.com/search/docs/crawling-indexing/links-crawlable), [Product structured data](https://developers.google.com/search/docs/appearance/structured-data/product-snippet).
+
+## Cloudflare Worker deployment
+
+Use a full checkout of `main` as the build root. The original styles, translation scripts, and images are tracked under `dist/`. The SEO generator updates the HTML and sitemap in place. Keep the rest of `dist/` when preparing the upload.
+
+Run `npm run build` before each deployment. It checks JavaScript syntax, regenerates the SEO pages, and fails if a referenced local asset or page is missing, empty, or has mismatched filename casing. Run `npm run check:assets` to validate a prepared `dist/` without regenerating pages.
+
+From the repository root, run the following commands against the existing Worker. Continue to the deploy command only if the build passes.
+
+```sh
+npm run build
+npx wrangler deploy --assets ./dist --compatibility-date 2026-11-04
+```
+
+For a Git-connected Worker, use `npm run build` as its build command and keep the existing Wrangler command as its deploy command. Cloudflare serves the assets from the deployed version, so a GitHub update takes effect after a deployment succeeds.

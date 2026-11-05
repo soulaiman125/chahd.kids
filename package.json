@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node preview.mjs",
     "assets": "node build-assets.mjs",
-    "check": "node --check dist/app.js && node --check dist/products.js && node --check dist/landing.js && node --check dist/languages.js",
+    "check": "node --check intro.js && node --check dist/app.js && node --check dist/products.js && node --check dist/landing.js && node --check dist/languages.js",
     "check:assets": "node validate-dist.mjs",
     "seo": "node build-seo.mjs && npm run check:assets",
     "build": "npm run check && npm run seo"

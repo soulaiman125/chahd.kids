@@ -14,7 +14,96 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="لعبة أطفال بتصميم جهاز تحكم Nona Baby | شهد Kids طنجة">
 <meta name="twitter:description" content="لعبة أطفال بتصميم جهاز تحكم Nona Baby، بالموديل الظاهر في صورة المتجر. تأكدي مع المتجر من الموديل، العمر المناسب وتعليمات الاستعمال والثمن.">
-<meta name="twitter:image" content="https://chahd-kids.avidlemon1.chatgpt.site/assets/products/remote-teether-toy.webp"><link rel="icon" href="assets/chahd-kids-logo-v1.png"><link rel="stylesheet" href="style.css?v=seo-catalog-1"><link rel="stylesheet" href="seo-pages.css"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Product","@id":"https://chahd-kids.avidlemon1.chatgpt.site/products/remote-teether-toy#product","name":"لعبة أطفال بتصميم جهاز تحكم Nona Baby","description":"لعبة أطفال بتصميم جهاز تحكم Nona Baby، بالموديل الظاهر في صورة المتجر. تأكدي مع المتجر من الموديل، العمر المناسب وتعليمات الاستعمال والثمن.","image":["https://chahd-kids.avidlemon1.chatgpt.site/assets/products/remote-teether-toy.webp"],"url":"https://chahd-kids.avidlemon1.chatgpt.site/products/remote-teether-toy","category":"الألعاب والإكسسوارات","brand":{"@type":"Brand","name":"Nona Baby"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://chahd-kids.avidlemon1.chatgpt.site/"},{"@type":"ListItem","position":2,"name":"الألعاب والإكسسوارات","item":"https://chahd-kids.avidlemon1.chatgpt.site/categories/toys"},{"@type":"ListItem","position":3,"name":"لعبة أطفال بتصميم جهاز تحكم Nona Baby","item":"https://chahd-kids.avidlemon1.chatgpt.site/products/remote-teether-toy"}]}]}</script><script src="landing.js" defer></script><script src="vendor/translate.js" defer></script><script src="languages.js" defer></script></head><body class="landing-page"><a class="skip" href="#main">انتقل إلى المحتوى</a><div class="announcement"><span>من طنجة، بكل حب ♡</span><span>التوصيل لجميع مدن المغرب</span></div><header class="header landing-header"><div class="wrap header-row"><a class="notranslate brand site-brand" href="index.html" aria-label="شهد Kids — الرئيسية"><span class="brand-logo"><img src="assets/chahd-kids-logo-v1.png" alt="شهد Kids" width="1254" height="1254"></span></a><nav class="landing-nav" aria-label="القائمة الرئيسية"><a href="index.html#catalog">تصفحي المتجر</a><a href="index.html#help">كيف أطلب؟</a></nav></div>    <div class="wrap language-row notranslate" id="language-controls" translate="no" aria-busy="false">
+<meta name="twitter:image" content="https://chahd-kids.avidlemon1.chatgpt.site/assets/products/remote-teether-toy.webp"><!-- INTRO-HEAD -->
+<script>
+(() => {
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (motion.matches || document.visibilityState === 'hidden') return;
+
+  const key = 'chahd_intro_seen';
+  const seenCookie = () => document.cookie.split(';').some(value => value.trim() === key + '=1');
+  try {
+    if (seenCookie()) return;
+  } catch { /* Storage can be unavailable in a private or local preview. */ }
+  try {
+    if (sessionStorage.getItem(key)) return;
+  } catch { /* Fall back to the session cookie. */ }
+
+  let remembered = false;
+  try {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = key + '=1; Path=/; SameSite=Lax' + secure;
+    remembered = seenCookie();
+  } catch { /* Fall back to tab session storage. */ }
+  try {
+    sessionStorage.setItem(key, '1');
+    remembered = true;
+  } catch { /* Skip the intro if it would repeat on every navigation. */ }
+  if (!remembered) return;
+
+  const root = document.documentElement;
+  const started = performance.now();
+  const events = new AbortController();
+  const signal = events.signal;
+  let readyTimer;
+  let fadeTimer;
+  let fallbackTimer;
+  let leaving = false;
+
+  function finish() {
+    clearTimeout(readyTimer);
+    clearTimeout(fadeTimer);
+    clearTimeout(fallbackTimer);
+    root.classList.remove('intro-active', 'intro-revealing');
+    events.abort();
+  }
+
+  function reveal() {
+    if (leaving) return;
+    leaving = true;
+    root.classList.add('intro-revealing');
+    fadeTimer = setTimeout(finish, 280);
+  }
+
+  function ready() {
+    clearTimeout(readyTimer);
+    readyTimer = setTimeout(reveal, Math.max(0, 650 - (performance.now() - started)));
+  }
+
+  fallbackTimer = setTimeout(reveal, 1200);
+  document.addEventListener('DOMContentLoaded', () => {
+    const leadImage = document.querySelector('.hero img, .landing-main-photo');
+    if (!leadImage || leadImage.complete) {
+      ready();
+    } else {
+      leadImage.addEventListener('load', ready, { once: true, signal });
+      leadImage.addEventListener('error', ready, { once: true, signal });
+    }
+  }, { once: true, signal });
+
+  // Reveal immediately on interaction and let the original event continue.
+  document.addEventListener('keydown', finish, { capture: true, signal });
+  document.addEventListener('focusin', finish, { capture: true, signal });
+  document.addEventListener('pointerdown', finish, { capture: true, passive: true, signal });
+  motion.addEventListener('change', finish, { signal });
+  window.addEventListener('pagehide', finish, { once: true, signal });
+  root.classList.add('intro-active');
+})();
+</script>
+<link rel="stylesheet" href="intro.css">
+<!-- /INTRO-HEAD --><link rel="icon" href="assets/chahd-kids-logo-v1.png"><link rel="stylesheet" href="style.css?v=seo-catalog-1"><link rel="stylesheet" href="seo-pages.css"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Product","@id":"https://chahd-kids.avidlemon1.chatgpt.site/products/remote-teether-toy#product","name":"لعبة أطفال بتصميم جهاز تحكم Nona Baby","description":"لعبة أطفال بتصميم جهاز تحكم Nona Baby، بالموديل الظاهر في صورة المتجر. تأكدي مع المتجر من الموديل، العمر المناسب وتعليمات الاستعمال والثمن.","image":["https://chahd-kids.avidlemon1.chatgpt.site/assets/products/remote-teether-toy.webp"],"url":"https://chahd-kids.avidlemon1.chatgpt.site/products/remote-teether-toy","category":"الألعاب والإكسسوارات","brand":{"@type":"Brand","name":"Nona Baby"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://chahd-kids.avidlemon1.chatgpt.site/"},{"@type":"ListItem","position":2,"name":"الألعاب والإكسسوارات","item":"https://chahd-kids.avidlemon1.chatgpt.site/categories/toys"},{"@type":"ListItem","position":3,"name":"لعبة أطفال بتصميم جهاز تحكم Nona Baby","item":"https://chahd-kids.avidlemon1.chatgpt.site/products/remote-teether-toy"}]}]}</script><script src="landing.js" defer></script><script src="vendor/translate.js" defer></script><script src="languages.js" defer></script></head><body class="landing-page"><!-- INTRO-BODY -->
+<div class="site-intro notranslate" translate="no" aria-hidden="true" hidden>
+  <div class="site-intro__center">
+    <div class="site-intro__badge">
+      <img src="assets/chahd-kids-logo-v1.png" width="1254" height="1254" alt="" loading="lazy">
+    </div>
+    <span class="site-intro__heart site-intro__heart--one">♡</span>
+    <span class="site-intro__heart site-intro__heart--two">♡</span>
+    <span class="site-intro__heart site-intro__heart--three">♡</span>
+    <div class="site-intro__track"></div>
+  </div>
+</div>
+<!-- /INTRO-BODY --><a class="skip" href="#main">انتقل إلى المحتوى</a><div class="announcement"><span>من طنجة، بكل حب ♡</span><span>التوصيل لجميع مدن المغرب</span></div><header class="header landing-header"><div class="wrap header-row"><a class="notranslate brand site-brand" href="index.html" aria-label="شهد Kids — الرئيسية"><span class="brand-logo"><img src="assets/chahd-kids-logo-v1.png" alt="شهد Kids" width="1254" height="1254"></span></a><nav class="landing-nav" aria-label="القائمة الرئيسية"><a href="index.html#catalog">تصفحي المتجر</a><a href="index.html#help">كيف أطلب؟</a></nav></div>    <div class="wrap language-row notranslate" id="language-controls" translate="no" aria-busy="false">
       <label class="language-label" for="site-language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a19 19 0 0 1 0 18 19 19 0 0 1 0-18Z"/></svg><span>اللغة / Language</span></label>
       <select id="site-language" aria-label="اختر لغة الموقع / Choose website language"><option value="arabic">العربية</option></select>
       <span id="translation-status" role="status" aria-live="polite">العربية — النسخة الأصلية · Original</span>

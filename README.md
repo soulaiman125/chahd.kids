@@ -36,9 +36,11 @@ The header search icon opens a labelled search form with submit, clear and close
 
 ## SEO and static pages
 
-Run `npm run seo` after changing product records. `build-seo.mjs` generates 69 static product pages, six category pages, a 76-URL image sitemap, robots.txt, canonical links, social sharing metadata, Store/WebSite schema, Product schema and breadcrumbs. The homepage includes real product and category links before JavaScript runs. No prices, ratings or stock values are fabricated; Product markup without offers/reviews is not claimed to qualify for Google product rich results.
+Run `npm run seo` after changing product records or campaigns. `build-seo.mjs` generates product, category and campaign pages, an image sitemap, robots.txt, canonical links, social sharing metadata, Store/WebSite schema, Product schema and breadcrumbs. The homepage includes real product and category links before JavaScript runs. No prices, ratings or stock values are fabricated; Product markup without offers/reviews is not claimed to qualify for Google product rich results.
 
-The default canonical origin is https://chahd-kids.avidlemon1.chatgpt.site. When moving to Cloudflare or a custom domain, set SITE_URL to the final HTTPS origin and rerun `npm run seo` before deployment. Configure any domain redirects at the hosting provider; keep a single canonical site. Automatic translations do not generate separate language URLs, so no hreflang alternates are declared.
+The default canonical origin is https://chahdkids.com. Set SITE_URL to the final HTTPS origin if it changes, then rerun `npm run seo` before deployment. Configure any domain redirects at the hosting provider; keep a single canonical site. Automatic translations do not generate separate language URLs, so no hreflang alternates are declared.
+
+See [Meta ads setup](META-ADS.md) for campaign pages, consent, event verification, and confirmed purchase reporting.
 
 Public access is necessary for indexing. In Search Console, verify ownership of the final public domain and submit `/sitemap.xml`; no Search Console property or submission has been created by this source change. Indexing and rankings are not guaranteed.
 

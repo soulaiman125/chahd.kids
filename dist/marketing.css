@@ -1,0 +1,39 @@
+.marketing-panel[hidden] { display: none; }
+
+.marketing-panel {
+  position: fixed;
+  z-index: 50;
+  inset-inline-end: 14px;
+  inset-block-end: max(14px, env(safe-area-inset-bottom));
+  width: min(390px, calc(100% - 28px));
+  max-height: calc(100vh - 28px);
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: 0 8px 32px #122b2233;
+}
+
+.marketing-panel h2 { margin: 0; font-size: 16px; }
+.marketing-panel p { margin: 8px 0 12px; font-size: 13px; line-height: 1.7; }
+.marketing-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.marketing-actions button {
+  flex: 1 1 auto;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.marketing-actions button[data-marketing-choice="allow"] { background: var(--green); color: white; }
+.marketing-footer { padding-block: 8px; }
+.marketing-footer button { min-height: 44px; font-size: 12px; text-decoration: underline; }
+.ad-order-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ad-order-actions .button { min-height: 44px; justify-content: center; }
+.campaign-order { margin-top: 12px; min-height: 44px; }
+
+@media (max-width: 540px) {
+  .ad-order-actions .button { width: 100%; }
+}
+

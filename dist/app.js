@@ -22,6 +22,7 @@ const $ = selector => document.querySelector(selector);
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const productNameHTML = name => name.split(/([A-Za-z][A-Za-z0-9 .&+₂-]*)/g).filter(Boolean).map(part => /^[A-Za-z]/.test(part) ? '<bdi class="notranslate" translate="no">'+escapeHTML(part)+'</bdi>' : '<span>'+escapeHTML(part)+'</span>').join('');
 const productById = id => products.find(p => p.id === id);
+const adItem = (product, quantity) => ({ id:product.id, quantity, price:!product.currency || product.currency === 'MAD' ? product.price : undefined });
 const imagesFor = product => product.images || [`assets/${product.image}.svg`];
 function readStorage(key, fallback){try{return JSON.parse(localStorage.getItem(key)) ?? fallback;}catch{return fallback;}}
 let cart = readStorage('chahd-cart-v1', []);
@@ -63,7 +64,7 @@ function openDetail(id){
 function addToCart(product,option){
  const existing=cart.find(i=>i.id===product.id&&i.option===option);
  if(existing){if(existing.quantity>=20){toast('الحد الأقصى هو 20 من نفس الاختيار');return;}existing.quantity++;}else cart.push({id:product.id,option,quantity:1});
- persist();renderCart();closeDialog('product-dialog');toast('تزاد الاختيار لسلة الطلب ♡');
+ persist();renderCart();window.chahdAds?.added(adItem(product,1));closeDialog('product-dialog');toast('تزاد الاختيار لسلة الطلب ♡');
 }
 function renderCart(){
  const count=cart.reduce((total,item)=>total+item.quantity,0);$('#cart-count').textContent=count;$('#cart-total-count').textContent=`(${count})`;$('#cart-toggle').setAttribute('aria-label',`فتح سلة الطلب، ${count} قطع`);
@@ -84,7 +85,7 @@ document.addEventListener('click',event=>{
  if(target.dataset.close){closeDialog(target.dataset.close);return;}
  if(target.dataset.option){selectedOption=target.dataset.option;document.querySelectorAll('[data-option]').forEach(b=>b.setAttribute('aria-pressed',String(b===target)));return;}
  if(target.id==='add-selected'){addToCart(selectedProduct,selectedOption);return;}
- if(target.dataset.quantity!==undefined){const index=Number(target.dataset.quantity),item=cart[index],delta=Number(target.dataset.delta);if(!item)return;const newQuantity=Math.max(0,Math.min(20,item.quantity+delta));item.quantity=newQuantity;cart=cart.filter(i=>i.quantity>0);persist();renderCart();const next=document.querySelector(`[data-quantity="${Math.min(index,cart.length-1)}"][data-delta="${delta}"]`);(next||$('#cart-dialog .cart-header button')).focus({preventScroll:true});return;}
+ if(target.dataset.quantity!==undefined){const index=Number(target.dataset.quantity),item=cart[index],delta=Number(target.dataset.delta);if(!item)return;const newQuantity=Math.max(0,Math.min(20,item.quantity+delta));if(newQuantity>item.quantity)window.chahdAds?.added(adItem(productById(item.id),newQuantity-item.quantity));item.quantity=newQuantity;cart=cart.filter(i=>i.quantity>0);persist();renderCart();const next=document.querySelector(`[data-quantity="${Math.min(index,cart.length-1)}"][data-delta="${delta}"]`);(next||$('#cart-dialog .cart-header button')).focus({preventScroll:true});return;}
  if(target.dataset.remove!==undefined){cart.splice(Number(target.dataset.remove),1);persist();renderCart();$('#cart-dialog .cart-header button').focus({preventScroll:true});}
 });
 $('#cart-toggle').addEventListener('click',()=>{renderCart();openDialog('cart-dialog');});
@@ -110,6 +111,8 @@ $('#checkout-form').addEventListener('submit',e=>{
  e.preventDefault();if(!cart.length)return;
  const lines=['السلام عليكم، بغيت نستفسر على هاد الاختيارات من chahd.kids:',...cart.map(i=>`• ${productById(i.id).name} — ${i.option} — الكمية: ${i.quantity}`),'','عافاكم تأكدو ليا الموديلات، المقاسات، الأثمنة، التوفر ومصاريف التوصيل.'];
  const name=$('#customer-name').value.trim(),city=$('#customer-city').value.trim(),note=$('#customer-note').value.trim();if(name)lines.push(`الاسم: ${name}`);if(city)lines.push(`المدينة: ${city}`);if(note)lines.push(`ملاحظات: ${note}`);
+ const campaign=window.chahdAds?.checkout(cart.map(i=>adItem(productById(i.id),i.quantity)),JSON.stringify(cart));
+ if(campaign)lines.push('',campaign);
  const url=`https://wa.me/212640341765?text=${encodeURIComponent([...lines, 'Language / اللغة: '+(window.chahdTranslation?.language || 'ar')].join('\n'))}`;$('#wa-fallback').href=url;$('#wa-fallback').hidden=false;window.open(url,'_blank','noopener,noreferrer');
 });
 $('#year').textContent=new Date().getFullYear();renderFilters();renderProducts();renderCart();

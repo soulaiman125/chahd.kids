@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "node preview.mjs",
     "assets": "node build-assets.mjs",
-    "check": "node --check intro.js && node --check dist/app.js && node --check dist/products.js && node --check dist/landing.js && node --check dist/languages.js",
+    "check": "node --check intro.js && node --check dist/app.js && node --check dist/products.js && node --check dist/landing.js && node --check dist/languages.js && node --check dist/marketing.js && node --check meta-purchase.mjs",
     "check:assets": "node validate-dist.mjs",
     "seo": "node build-seo.mjs && npm run check:assets",
-    "build": "npm run check && npm run seo"
+    "build": "npm run check && npm run seo",
+    "meta:purchase": "node meta-purchase.mjs"
   }
 }

@@ -7,7 +7,7 @@ const introHead = `<!-- INTRO-HEAD -->
 <script>
 ${introScript}
 </script>
-<link rel="stylesheet" href="intro.css">
+<link rel="stylesheet" href="intro.css?v=5s-1">
 <!-- /INTRO-HEAD -->`;
 const introBody = `<!-- INTRO-BODY -->
 <div class="site-intro notranslate" translate="no" aria-hidden="true" hidden>
@@ -29,6 +29,27 @@ function addIntro(html) {
     .replace('<link rel="icon"', tag => introHead + tag)
     .replace(/<!-- INTRO-BODY -->[\s\S]*?<!-- \/INTRO-BODY -->/g, '')
     .replace(/<body\b[^>]*>/, tag => tag + introBody);
+}
+
+const instagramIcon = '<svg class="instagram-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+  '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>' +
+  '<circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>';
+
+function instagramLink(label, variant) {
+  return '<a class="instagram-link instagram-link--' + variant +
+    '" href="https://www.instagram.com/chahd.kids7/" target="_blank" rel="noopener noreferrer">' +
+    instagramIcon + label + '</a>';
+}
+
+function addInstagram(html) {
+  const footerLink = instagramLink('<span class="notranslate" translate="no" dir="ltr">@chahd.kids7</span>', 'footer');
+  const contactLink = instagramLink('<span>تابعينا على إنستغرام</span>', 'contact');
+  return html
+    .replace(/<!-- INSTAGRAM-(FOOTER|CONTACT) -->[\s\S]*?<!-- \/INSTAGRAM-\1 -->/g, '')
+    .replace('+212 640 341 765</a>', phone => phone + '<!-- INSTAGRAM-FOOTER -->' + footerLink + '<!-- /INSTAGRAM-FOOTER -->')
+    .replace(/<section class="contact-band wrap"><div>[\s\S]*?<\/p>/,
+      contact => contact + '<!-- INSTAGRAM-CONTACT -->' + contactLink + '<!-- /INSTAGRAM-CONTACT -->')
+    .replace('style.css?v=seo-catalog-1', 'style.css?v=social-intro-1');
 }
 
 // Change SITE_URL when the shop moves to its final domain, then regenerate.
@@ -80,7 +101,7 @@ function card(p,action=''){return `<article class="product-card" data-product-id
 const directory=()=>`<nav class="category-directory" aria-label="أقسام المتجر">${categories.map(c=>`<a href="${categoryPath(c)}">${c.name}</a>`).join('')}</nav>`;
 function breadcrumbs(items){return `<nav class="breadcrumbs" aria-label="مسار التصفح"><a href="index.html">الرئيسية</a>${items.map(item=>`<span aria-hidden="true">/</span>${item.path?`<a href="${item.path}">${e(item.name)}</a>`:`<span aria-current="page">${e(item.name)}</span>`}`).join('')}</nav>`;}
 function breadcrumbData(items){return {'@type':'BreadcrumbList',itemListElement:[{name:'الرئيسية',path:''},...items].map((item,i)=>({'@type':'ListItem',position:i+1,name:item.name,item:url(item.path)}))};}
-function page({title,description,path,image,body,graph,product}){return addMarketing(addIntro(`<!doctype html>\n<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="../"><meta name="theme-color" content="#35564a">${metadata(title,description,path,image)}<link rel="icon" href="assets/chahd-kids-logo-v1.png"><link rel="stylesheet" href="style.css?v=seo-catalog-1"><link rel="stylesheet" href="seo-pages.css"><script type="application/ld+json">${json({'@context':'https://schema.org','@graph':graph})}</script><script src="landing.js" defer></script><script src="vendor/translate.js" defer></script><script src="languages.js" defer></script></head><body class="landing-page"><a class="skip" href="#main">انتقل إلى المحتوى</a><div class="announcement"><span>من طنجة، بكل حب ♡</span><span>التوصيل لجميع مدن المغرب</span></div><header class="header landing-header"><div class="wrap header-row"><a class="notranslate brand site-brand" href="index.html" aria-label="شهد Kids — الرئيسية"><span class="brand-logo"><img src="assets/chahd-kids-logo-v1.png" alt="شهد Kids" width="1254" height="1254"></span></a><nav class="landing-nav" aria-label="القائمة الرئيسية"><a href="index.html#catalog">تصفحي المتجر</a><a href="index.html#help">كيف أطلب؟</a></nav></div>${languageRow}</header><main class="wrap" id="main">${body}</main><footer class="landing-footer"><div class="wrap"><strong>شهد Kids · ملابس ومستلزمات الأطفال في طنجة</strong><p>الأثمنة والموديلات والتوفر كتتأكد مع المتجر. التوصيل لجميع مدن المغرب.</p><a href="https://wa.me/212640341765" target="_blank" rel="noopener noreferrer" dir="ltr">+212 640 341 765</a>${directory()}</div></footer></body></html>`),product);}
+function page({title,description,path,image,body,graph,product}){return addInstagram(addMarketing(addIntro(`<!doctype html>\n<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="../"><meta name="theme-color" content="#35564a">${metadata(title,description,path,image)}<link rel="icon" href="assets/chahd-kids-logo-v1.png"><link rel="stylesheet" href="style.css?v=seo-catalog-1"><link rel="stylesheet" href="seo-pages.css"><script type="application/ld+json">${json({'@context':'https://schema.org','@graph':graph})}</script><script src="landing.js" defer></script><script src="vendor/translate.js" defer></script><script src="languages.js" defer></script></head><body class="landing-page"><a class="skip" href="#main">انتقل إلى المحتوى</a><div class="announcement"><span>من طنجة، بكل حب ♡</span><span>التوصيل لجميع مدن المغرب</span></div><header class="header landing-header"><div class="wrap header-row"><a class="notranslate brand site-brand" href="index.html" aria-label="شهد Kids — الرئيسية"><span class="brand-logo"><img src="assets/chahd-kids-logo-v1.png" alt="شهد Kids" width="1254" height="1254"></span></a><nav class="landing-nav" aria-label="القائمة الرئيسية"><a href="index.html#catalog">تصفحي المتجر</a><a href="index.html#help">كيف أطلب؟</a></nav></div>${languageRow}</header><main class="wrap" id="main">${body}</main><footer class="landing-footer"><div class="wrap"><strong>شهد Kids · ملابس ومستلزمات الأطفال في طنجة</strong><p>الأثمنة والموديلات والتوفر كتتأكد مع المتجر. التوصيل لجميع مدن المغرب.</p><a href="https://wa.me/212640341765" target="_blank" rel="noopener noreferrer" dir="ltr">+212 640 341 765</a>${directory()}</div></footer></body></html>`),product));}
 await fs.mkdir('dist/products',{recursive:true});await fs.mkdir('dist/categories',{recursive:true});
 await fs.mkdir('dist/campaigns',{recursive:true});
 function orderUrl(p, campaign) {
@@ -130,7 +151,7 @@ index=index.replace('</head>',`<!-- SEO:START -->\n${metadata(rootTitle,rootDesc
 index=index.replace(/<div class="product-grid" id="product-grid">[\s\S]*?<\/div><div class="empty-state"/,`<div class="product-grid" id="product-grid">${products.map(p=>card(p)).join('')}</div><div class="empty-state"`);
 index=index.replace(/<div class="category-index" id="category-grid">[\s\S]*?<\/div>/,`<div class="category-index" id="category-grid">${categories.map((c,i)=>`<a class="category-card" href="${categoryPath(c)}" data-category="${c.id}"><span class="category-number">0${i+1}</span><span class="category-copy"><strong>${c.name}</strong><small>اكتشفي اختيارات القسم</small></span><span class="category-row-arrow" aria-hidden="true">↗</span></a>`).join('')}</div>`);
 index=index.replace(/<div class="wrap catalog-links"><!-- DIRECTORY:START -->[\s\S]*?<!-- DIRECTORY:END --><\/div>/,'').replace('</main>',`<div class="wrap catalog-links"><!-- DIRECTORY:START -->${directory()}<!-- DIRECTORY:END --></div></main>`);
-await fs.writeFile('dist/index.html',addMarketing(addIntro(index)));
+await fs.writeFile('dist/index.html',addInstagram(addMarketing(addIntro(index))));
 const locations=[{path:''},...categories.map(c=>({path:categoryPath(c)})),...products.map(p=>({path:productPath(p),image:p.images[0]})),...campaigns.map(c=>({path:'campaigns/'+c.id+'.html'}))];
 await fs.writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${locations.map(item=>`<url><loc>${e(url(item.path))}</loc>${item.image?`<image:image><image:loc>${e(url(item.image))}</image:loc></image:image>`:''}</url>`).join('')}</urlset>\n`);
 await fs.writeFile('dist/robots.txt','User-agent: *\nAllow: /\n\nSitemap: '+url('sitemap.xml')+'\n');

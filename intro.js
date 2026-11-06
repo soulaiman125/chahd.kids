@@ -24,6 +24,9 @@
   if (!remembered) return;
 
   const root = document.documentElement;
+  const holdDuration = 4400;
+  const fadeDuration = 600;
+  const readinessDeadline = 4600;
   const started = performance.now();
   const events = new AbortController();
   const signal = events.signal;
@@ -44,15 +47,16 @@
     if (leaving) return;
     leaving = true;
     root.classList.add('intro-revealing');
-    fadeTimer = setTimeout(finish, 280);
+    fadeTimer = setTimeout(finish, fadeDuration);
   }
 
   function ready() {
+    if (leaving) return;
     clearTimeout(readyTimer);
-    readyTimer = setTimeout(reveal, Math.max(0, 650 - (performance.now() - started)));
+    readyTimer = setTimeout(reveal, Math.max(0, holdDuration - (performance.now() - started)));
   }
 
-  fallbackTimer = setTimeout(reveal, 1200);
+  fallbackTimer = setTimeout(reveal, readinessDeadline);
   document.addEventListener('DOMContentLoaded', () => {
     const leadImage = document.querySelector('.hero img, .landing-main-photo');
     if (!leadImage || leadImage.complete) {

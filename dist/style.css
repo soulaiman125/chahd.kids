@@ -61,3 +61,36 @@ html[dir=ltr] .hero-buttons{gap:18px}
 html[dir=ltr] .hero-description{line-height:1.9}
 @media(max-width:800px){.language-row{gap:10px}.language-label{font-size:10px}#translation-status{font-size:8px}html[dir=ltr] .hero h1{font-size:34px}}
 @media(max-width:560px){html{scroll-padding-top:185px}.language-row{flex-wrap:wrap;gap:6px 10px;padding-block:8px}.language-label{font-size:9px}#site-language{min-width:110px;max-width:150px;font-size:11px;height:31px}#translation-status{order:4;width:100%;margin:0;font-size:8px}#original-language{margin-inline-start:auto;font-size:10px}html[dir=ltr] .hero h1{font-size:36px}html[dir=ltr] .hero-buttons{flex-wrap:wrap;gap:15px}html[dir=ltr] .section-heading{flex-wrap:wrap}html[dir=ltr] .category-card strong{line-height:1.8}.steps article{padding-inline-start:45px;padding-inline-end:0}.steps article>span{right:auto;inset-inline-start:0}}
+
+a.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  width: fit-content;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.instagram-link .instagram-icon {
+  width: 18px;
+  height: 18px;
+  color: #946456;
+  stroke-width: 1.7;
+}
+
+a.instagram-link:hover,
+a.instagram-link:focus-visible { text-decoration: underline; }
+
+.contact-band a.instagram-link--contact { margin-block-start: 6px; }
+.landing-footer a.instagram-link--footer { margin-inline-start: 16px; }
+.footer-main .footer-location > a.instagram-link--footer { display: inline-flex; }
+
+@media (max-width: 700px) {
+  .footer-main .footer-location > a.instagram-link--footer {
+    margin-inline-start: 0;
+    display: flex;
+  }
+}

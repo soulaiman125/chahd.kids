@@ -7,7 +7,7 @@ html.intro-active .site-intro[hidden] {
   pointer-events: none;
   background: radial-gradient(ellipse at 50% 45%, #28493d, #122b22 72%);
   color: #e2c494;
-  animation: intro-safety 1ms 1500ms forwards;
+  animation: intro-safety 1ms 5200ms forwards;
 }
 
 .site-intro__center {
@@ -27,7 +27,7 @@ html.intro-active .site-intro[hidden] {
   border-radius: 28%;
   background: #fff9ef;
   box-shadow: 0 16px 48px #0c211a80;
-  animation: intro-badge 500ms cubic-bezier(.22, .75, .25, 1) both;
+  animation: intro-badge 4400ms cubic-bezier(.22, .75, .25, 1) both;
 }
 
 .site-intro__badge img {
@@ -43,12 +43,12 @@ html.intro-active .site-intro[hidden] {
   position: absolute;
   font: 18px/1 Georgia, serif;
   opacity: 0;
-  animation: intro-heart 880ms ease-out both;
+  animation: intro-heart 3600ms ease-in-out both;
 }
 
-.site-intro__heart--one { top: 22%; left: -29px; animation-delay: 100ms; }
-.site-intro__heart--two { top: 11%; right: -24px; font-size: 14px; animation-delay: 220ms; }
-.site-intro__heart--three { top: 58%; right: -32px; font-size: 12px; animation-delay: 310ms; }
+.site-intro__heart--one { top: 30%; left: -29px; --heart-tilt: -12deg; animation-delay: 400ms; }
+.site-intro__heart--two { top: 18%; right: -24px; --heart-tilt: 10deg; font-size: 14px; animation-delay: 850ms; }
+.site-intro__heart--three { top: 62%; right: -32px; --heart-tilt: -8deg; font-size: 12px; animation-delay: 1300ms; }
 
 .site-intro__track {
   width: 86px;
@@ -63,27 +63,30 @@ html.intro-active .site-intro[hidden] {
   background: linear-gradient(90deg, #bc9156, #f1d6a6);
   content: '';
   transform-origin: center left;
-  animation: intro-line 1150ms cubic-bezier(.15, .64, .35, 1) both;
+  animation: intro-line 4400ms cubic-bezier(.32, .12, .55, .9) both;
 }
 
 html.intro-revealing .site-intro[hidden] {
   opacity: 0;
-  transition: opacity 280ms ease;
+  transition: opacity 600ms cubic-bezier(.33, 0, .25, 1);
 }
 
 html.intro-revealing body > :is(.announcement, .header, main, footer) {
-  animation: intro-content 280ms ease-out both;
+  animation: intro-content 600ms ease-out both;
 }
 
 @keyframes intro-badge {
-  from { opacity: 0; transform: scale(.94); }
+  from { opacity: 0; transform: translateY(6px) scale(.93); }
+  22% { opacity: 1; transform: translateY(0) scale(1); }
+  62% { opacity: 1; transform: scale(1.012); }
   to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes intro-heart {
-  from { opacity: 0; transform: translateY(6px) scale(.88); }
-  38% { opacity: .68; }
-  to { opacity: 0; transform: translateY(-11px) scale(1.04); }
+  from { opacity: 0; transform: translateY(10px) rotate(var(--heart-tilt)) scale(.88); }
+  30% { opacity: .72; }
+  65% { opacity: .52; }
+  to { opacity: 0; transform: translateY(-25px) rotate(0) scale(1.03); }
 }
 
 @keyframes intro-line {
